@@ -42,9 +42,13 @@ const AddUser = (props) => {
         setEnteredUsername(event.target.value)
     }
 
+    const errorHandler = () => {
+        setError(null)
+    }
+
     return (
         <>
-            {error && <Modal title={error.title} message={error.message} />}
+            {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler}/>}
             <Card className={styles.input}>
                 <form onSubmit={addUserHandler}>
                     <Input
